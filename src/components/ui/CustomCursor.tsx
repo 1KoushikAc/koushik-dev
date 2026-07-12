@@ -1,68 +1,83 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [cursorType, setCursorType] = useState<"default" | "view" | "click">("default");
-  const [isVisible, setIsVisible] = useState(false);
+  const cursorType = useRef<"default" | "view" | "click">("default");
+  const isVisibleRef = useRef(false);
+  const isMobileRef = useRef(true);
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
+  const scale = useMotionValue(1);
+  const opacity = useMotionValue(0);
 
   const springX = useSpring(mouseX, { stiffness: 400, damping: 28 });
   const springY = useSpring(mouseY, { stiffness: 400, damping: 28 });
+  const springScale = useSpring(scale, { stiffness: 250, damping: 20 });
+  const springOpacity = useSpring(opacity, { stiffness: 300, damping: 30 });
+
+  const updateScale = useCallback((type: "default" | "view" | "click") => {
+    cursorType.current = type;
+    if (type === "view") {
+      scale.set(5);
+    } else if (type === "click") {
+      scale.set(1.5);
+    } else {
+      scale.set(1);
+    }
+  }, [scale]);
 
   useEffect(() => {
+    // Check for mobile on mount
+    const checkMobile = () => {
+      isMobileRef.current = window.innerWidth < 1024;
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        opacity.set(1);
+      }
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
+      isVisibleRef.current = false;
+      opacity.set(0);
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
-      // Check for elements with cursor attributes or interactive elements
       const cursorAttr = target.closest("[data-cursor]");
       const isLinkOrButton = target.closest("a, button, [role='button'], input, textarea");
 
       if (cursorAttr) {
-        const type = cursorAttr.getAttribute("data-cursor") as any;
-        setCursorType(type);
+        const type = cursorAttr.getAttribute("data-cursor") as "view" | "click";
+        updateScale(type);
       } else if (isLinkOrButton) {
-        setCursorType("click");
+        updateScale("click");
       } else {
-        setCursorType("default");
+        updateScale("default");
       }
     };
 
+    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("resize", checkMobile);
     };
-  }, [isVisible]);
+  }, [mouseX, mouseY, opacity, updateScale]);
 
-  // Disable custom cursor on mobile
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 1024);
-    const handleResize = () => setIsMobile(window.innerWidth < 1024);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  if (isMobile) return null;
-
+  // Hide on mobile via CSS to avoid hydration mismatch
   return (
     <motion.div
       style={{
@@ -70,24 +85,21 @@ export default function CustomCursor() {
         top: springY,
         x: "-50%",
         y: "-50%",
+        scale: springScale,
+        opacity: springOpacity,
         pointerEvents: "none",
       }}
-      animate={{
-        scale: cursorType === "view" ? 4.5 : cursorType === "click" ? 1.5 : 1,
-        opacity: isVisible ? 1 : 0,
-      }}
-      transition={{ type: "spring", stiffness: 250, damping: 20 }}
-      className="fixed w-4 h-4 rounded-full bg-accent mix-blend-difference z-50 pointer-events-none flex items-center justify-center text-[3px] font-bold text-white uppercase tracking-widest"
+      className="fixed w-4 h-4 rounded-full bg-accent mix-blend-difference z-[9999] pointer-events-none items-center justify-center hidden lg:flex"
+      aria-hidden="true"
     >
-      {cursorType === "view" && (
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-[2px] leading-none"
-        >
-          View
-        </motion.span>
-      )}
+      <motion.span
+        style={{
+          opacity: springScale.get() > 3 ? 1 : 0,
+        }}
+        className="text-[3px] font-bold text-white uppercase tracking-widest leading-none select-none"
+      >
+        View
+      </motion.span>
     </motion.div>
   );
 }

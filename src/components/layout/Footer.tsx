@@ -95,12 +95,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-border-custom pt-8 gap-4 text-xs text-muted">
           <p>© {currentYear} Koushik. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </Link>
+            <span className="cursor-default">Privacy Policy</span>
+            <span className="cursor-default">Terms of Service</span>
           </div>
         </div>
       </div>

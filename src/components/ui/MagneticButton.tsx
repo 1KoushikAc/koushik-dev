@@ -1,19 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { useRef, useState } from "react";
+
+interface MagneticButtonProps extends HTMLMotionProps<"button"> {
+  children: React.ReactNode;
+  className?: string;
+}
 
 export default function MagneticButton({
   children,
   className = "",
-  onClick,
   ...props
-}: {
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-  [key: string]: any;
-}) {
+}: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -37,7 +36,6 @@ export default function MagneticButton({
       onMouseLeave={handleMouseLeave}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.1 }}
-      onClick={onClick}
       className={`relative inline-flex items-center justify-center px-8 py-4 bg-foreground text-background text-sm font-medium tracking-wide rounded-full overflow-hidden transition-colors hover:bg-accent hover:text-white duration-300 cursor-pointer ${className}`}
       {...props}
     >

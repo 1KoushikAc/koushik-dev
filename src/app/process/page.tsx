@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
+import FadeIn from "@/components/ui/FadeIn";
 
 const processSteps = [
   {
@@ -69,15 +70,21 @@ export default function ProcessPage() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Header */}
         <div className="max-w-3xl mb-24">
-          <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-4">
-            My Process
-          </span>
-          <h1 className="text-5xl md:text-7xl font-serif tracking-tight text-foreground mb-8">
-            The Blueprint: <span className="italic font-normal">How</span> we get there.
-          </h1>
-          <p className="text-lg md:text-xl text-muted font-light leading-relaxed">
-            Premium websites are not made by accident. I follow a rigorous, eight-stage methodology that combines deep strategic research, editorial design craftsmanship, and modular software engineering.
-          </p>
+          <FadeIn>
+            <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-4">
+              My Process
+            </span>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="text-5xl md:text-7xl font-serif tracking-tight text-foreground mb-8">
+              The Blueprint: <span className="italic font-normal">How</span> we get there.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-lg md:text-xl text-muted font-light leading-relaxed">
+              Premium websites are not made by accident. I follow a rigorous, eight-stage methodology that combines deep strategic research, editorial design craftsmanship, and modular software engineering.
+            </p>
+          </FadeIn>
         </div>
 
         {/* Timeline List */}
@@ -89,37 +96,38 @@ export default function ProcessPage() {
             className="absolute left-[17px] top-4 bottom-4 w-[1px] bg-accent hidden lg:block"
           />
 
-          {processSteps.map((step) => (
-            <div
-              key={step.num}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pl-0 lg:pl-16 group py-8 border-b border-border-custom/40 last:border-b-0"
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-3 top-[38px] w-2.5 h-2.5 rounded-full border border-accent bg-background group-hover:bg-accent transition-colors duration-300 hidden lg:block z-10" />
+          {processSteps.map((step, index) => (
+            <FadeIn key={step.num} delay={index * 0.05}>
+              <div
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pl-0 lg:pl-16 group py-8 border-b border-border-custom/40 last:border-b-0"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-3 top-[38px] w-2.5 h-2.5 rounded-full border border-accent bg-background group-hover:bg-accent transition-colors duration-300 hidden lg:block z-10" />
 
-              <div className="lg:col-span-1 text-sm font-mono text-muted flex items-center gap-2">
-                <span>{step.num}</span>
-                <span className="h-[1px] w-6 bg-border-custom lg:hidden" />
-              </div>
+                <div className="lg:col-span-1 text-sm font-mono text-muted flex items-center gap-2">
+                  <span>{step.num}</span>
+                  <span className="h-[1px] w-6 bg-border-custom lg:hidden" />
+                </div>
 
-              <div className="lg:col-span-4">
-                <h2 className="text-2xl font-serif text-foreground font-medium mb-3">
-                  {step.title}
-                </h2>
-                <p className="text-muted text-sm md:text-base leading-relaxed font-light">
-                  {step.desc}
-                </p>
-              </div>
+                <div className="lg:col-span-4">
+                  <h2 className="text-2xl font-serif text-foreground font-medium mb-3">
+                    {step.title}
+                  </h2>
+                  <p className="text-muted text-sm md:text-base leading-relaxed font-light">
+                    {step.desc}
+                  </p>
+                </div>
 
-              <div className="lg:col-span-6 lg:col-start-7 bg-black/[0.015] border border-border-custom/50 rounded-xl p-6">
-                <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-2">
-                  Key Output
-                </span>
-                <p className="text-sm font-medium text-foreground leading-relaxed">
-                  {step.deliverables}
-                </p>
+                <div className="lg:col-span-6 lg:col-start-7 bg-black/[0.015] border border-border-custom/50 rounded-xl p-6">
+                  <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-2">
+                    Key Output
+                  </span>
+                  <p className="text-sm font-medium text-foreground leading-relaxed">
+                    {step.deliverables}
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
 

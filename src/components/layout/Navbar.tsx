@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
   { label: "Work", path: "/work" },
@@ -36,6 +36,7 @@ export default function Navbar() {
                 className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-md"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                aria-current={isActive ? "page" : undefined}
                 style={{
                   color: isActive ? "var(--foreground)" : "var(--muted)",
                 }}
@@ -72,6 +73,17 @@ function MobileMenu() {
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <div className="md:hidden">
@@ -136,7 +148,7 @@ function MobileMenu() {
             <div className="flex flex-col gap-4 border-t border-border-custom pt-8">
               <span className="text-xs uppercase tracking-widest text-muted">Get in touch</span>
               <a
-                href="mailto:koushik@example.com"
+                href="mailto:hello@koushik.design"
                 className="text-lg font-medium hover:text-accent transition-colors"
               >
                 hello@koushik.design

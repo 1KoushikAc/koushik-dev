@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import FadeIn from "@/components/ui/FadeIn";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -43,51 +44,61 @@ export default function ContactPage() {
           {/* Headline & Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-12">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-4">
-                Get In Touch
-              </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-foreground leading-[1.1] mb-8">
-                Let’s build something <span className="italic font-normal">together.</span>
-              </h1>
-              <p className="text-muted text-sm md:text-base font-light leading-relaxed max-w-sm">
-                Have an idea, project, or want to discuss a potential partnership? Drop a message,
-                and I’ll get back to you within 24 hours.
-              </p>
+              <FadeIn>
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-4">
+                  Get In Touch
+                </span>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-foreground leading-[1.1] mb-8">
+                  Let’s build something <span className="italic font-normal">together.</span>
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <p className="text-muted text-sm md:text-base font-light leading-relaxed max-w-sm">
+                  Have an idea, project, or want to discuss a potential partnership? Drop a message,
+                  and I’ll get back to you within 24 hours.
+                </p>
+              </FadeIn>
             </div>
 
             <div className="flex flex-col gap-6">
-              <div>
-                <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-2">
-                  Direct Email
-                </span>
-                <a
-                  href="mailto:hello@koushik.design"
-                  className="text-lg md:text-xl font-serif font-medium text-foreground hover:text-accent transition-colors flex items-center gap-2 group"
-                >
-                  hello@koushik.design
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity -rotate-45" />
-                </a>
-              </div>
-
-              <div>
-                <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-3">
-                  Social Channels
-                </span>
-                <div className="flex flex-col gap-2">
-                  {socials.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-muted hover:text-foreground transition-colors flex items-center gap-1.5 group"
-                    >
-                      {social.label}
-                      <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  ))}
+              <FadeIn delay={0.25}>
+                <div>
+                  <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-2">
+                    Direct Email
+                  </span>
+                  <a
+                    href="mailto:hello@koushik.design"
+                    className="text-lg md:text-xl font-serif font-medium text-foreground hover:text-accent transition-colors flex items-center gap-2 group"
+                  >
+                    hello@koushik.design
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity -rotate-45" />
+                  </a>
                 </div>
-              </div>
+              </FadeIn>
+
+              <FadeIn delay={0.3}>
+                <div>
+                  <span className="text-xs uppercase tracking-widest text-muted font-semibold block mb-3">
+                    Social Channels
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    {socials.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-muted hover:text-foreground transition-colors flex items-center gap-1.5 group"
+                      >
+                        {social.label}
+                        <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             </div>
           </div>
 

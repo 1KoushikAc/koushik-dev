@@ -46,13 +46,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sansFont.variable} ${serifFont.variable} h-full antialiased`}
+      className={`${sansFont.variable} ${serifFont.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-accent selection:text-white relative">
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-accent selection:text-white relative">
         <SmoothScrollProvider>
           {/* Architectural Background Blueprint Grid */}
-          <div className="fixed inset-0 grid grid-cols-4 md:grid-cols-12 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pointer-events-none -z-50 opacity-[0.03] md:opacity-[0.04]">
-            {[...Array(13)].map((_, i) => (
+          <div className="fixed inset-0 grid grid-cols-4 md:grid-cols-12 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pointer-events-none -z-50 opacity-[0.03] md:opacity-[0.04]" aria-hidden="true">
+            {[...Array(12)].map((_, i) => (
               <div key={i} className="h-full w-[1px] bg-foreground" />
             ))}
           </div>
