@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import SchedulerMockup from "@/components/ui/SchedulerMockup";
 
 export default function DoctorCaseStudy() {
   return (
@@ -124,6 +125,7 @@ export default function DoctorCaseStudy() {
             <p>
               I engineered a custom state-based calendar scheduler in React, powered by `date-fns` for robust date math. The scheduling component communicates asynchronously with booking APIs, rendering slot selections and animations smoothly while maintaining keyboard navigate focus states.
             </p>
+            <SchedulerMockup />
           </div>
         </div>
 

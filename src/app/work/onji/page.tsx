@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import PaymentSimulator from "@/components/ui/PaymentSimulator";
 
 export default function OnjiCaseStudy() {
   return (
@@ -124,6 +125,7 @@ export default function OnjiCaseStudy() {
             <p>
               Developing this required extreme optimization. Blur filters are notoriously intensive for browser render engines. I solved this by animating elements using GPU-accelerated CSS transforms and using Framer Motion's hardware-acceleration overrides, achieving a locked 60fps on mobile Safari.
             </p>
+            <PaymentSimulator />
           </div>
         </div>
 

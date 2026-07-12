@@ -5,6 +5,7 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import PageTransition from "@/components/layout/PageTransition";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const sansFont = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -47,8 +48,19 @@ export default function RootLayout({
       lang="en"
       className={`${sansFont.variable} ${serifFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-accent selection:text-white">
+      <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-accent selection:text-white relative">
         <SmoothScrollProvider>
+          {/* Architectural Background Blueprint Grid */}
+          <div className="fixed inset-0 grid grid-cols-4 md:grid-cols-12 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pointer-events-none -z-50 opacity-[0.03] md:opacity-[0.04]">
+            {[...Array(13)].map((_, i) => (
+              <div key={i} className="h-full w-[1px] bg-foreground" />
+            ))}
+          </div>
+
+          {/* Interactive Custom Cursor */}
+          <CustomCursor />
+
+          {/* Global Layout Navigation */}
           <Navbar />
           <PageTransition>
             <main className="flex-grow">{children}</main>

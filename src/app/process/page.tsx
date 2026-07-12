@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 const processSteps = [
@@ -55,6 +57,13 @@ const processSteps = [
 ];
 
 export default function ProcessPage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 22 });
+
   return (
     <div className="pt-32 pb-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -72,9 +81,13 @@ export default function ProcessPage() {
         </div>
 
         {/* Timeline List */}
-        <div className="flex flex-col gap-12 mb-32 relative">
+        <div ref={containerRef} className="flex flex-col gap-12 mb-32 relative">
           {/* Vertical line indicator */}
           <div className="absolute left-[17px] top-4 bottom-4 w-[1px] bg-border-custom hidden lg:block" />
+          <motion.div
+            style={{ scaleY, transformOrigin: "top" }}
+            className="absolute left-[17px] top-4 bottom-4 w-[1px] bg-accent hidden lg:block"
+          />
 
           {processSteps.map((step) => (
             <div

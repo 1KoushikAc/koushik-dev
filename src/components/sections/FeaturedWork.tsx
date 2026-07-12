@@ -75,6 +75,7 @@ export default function FeaturedWork() {
               key={project.id}
               href={project.link}
               onMouseEnter={() => setActiveProject(project)}
+              data-cursor="view"
               className="group py-8 md:py-12 border-b border-border-custom flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer relative z-10"
             >
               <div className="flex items-baseline gap-6 md:gap-12">
