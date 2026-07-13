@@ -60,10 +60,10 @@ export default function StoneCustomizer() {
                   className={`text-xl sm:text-2xl text-center select-none ${activeFont.class} ${activeMaterial.text} transition-all duration-300`}
                   style={{
                     textShadow: material === "marble" 
-                      ? "1px 1px 1px rgba(0,0,0,0.15), -1px -1px 1px rgba(255,255,255,0.6)"
+                      ? "1px 1px 1px rgba(0,0,0,0.2), -1px -1px 1px rgba(255,255,255,0.8)"
                       : material === "granite"
-                      ? "1px 1px 2px rgba(0,0,0,0.8), -1px -1px 1px rgba(255,255,255,0.15)"
-                      : "1px 1px 1px rgba(0,0,0,0.4), -1px -1px 1px rgba(255,255,255,0.08)"
+                      ? "1px 1px 2px rgba(0,0,0,0.95), -1px -1px 1px rgba(255,255,255,0.2)"
+                      : "1px 1px 1.5px rgba(0,0,0,0.55), -1px -1px 1px rgba(255,255,255,0.12)"
                   }}
                 >
                   {text || "ENTER TEXT"}
@@ -129,7 +129,7 @@ export default function StoneCustomizer() {
                 value={text}
                 onChange={(e) => setText(e.target.value.toUpperCase())}
                 placeholder="YOUR MESSAGE"
-                className="w-full bg-black/[0.015] border border-border-custom focus:border-accent rounded-lg px-4 py-2.5 text-sm text-foreground outline-none transition-colors font-mono"
+                className="w-full bg-black/[0.015] border border-border-custom focus:border-accent focus:ring-2 focus:ring-accent/20 rounded-lg px-4 py-2.5 text-sm text-foreground outline-none transition-all duration-300 font-mono"
               />
             </div>
 

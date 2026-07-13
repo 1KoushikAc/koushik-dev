@@ -21,10 +21,10 @@ export default function PaymentSimulator() {
   };
 
   return (
-    <div className="w-full bg-[#121212] border border-gray-800 rounded-2xl p-6 md:p-8 font-sans max-w-md mx-auto lg:mx-0 mt-8 shadow-2xl relative overflow-hidden">
+    <div className="w-full bg-[#121212] border border-white/[0.08] rounded-2xl p-6 md:p-8 font-sans max-w-md mx-auto lg:mx-0 mt-8 shadow-2xl relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tr from-[#6D5DF6]/5 to-transparent pointer-events-none" />
 
-      <div className="flex items-center justify-between mb-6 border-b border-gray-800 pb-4">
+      <div className="flex items-center justify-between mb-6 border-b border-white/[0.08] pb-4">
         <span className="text-xs uppercase tracking-widest text-accent font-semibold">
           ONJI Secure Node
         </span>
@@ -44,7 +44,7 @@ export default function PaymentSimulator() {
               <label className="text-[10px] uppercase tracking-widest text-gray-500 font-semibold block mb-1">
                 Recipient
               </label>
-              <div className="w-full bg-[#1c1c1c] border border-gray-800 rounded-lg px-4 py-3 text-sm text-white font-medium flex justify-between items-center">
+              <div className="w-full bg-[#1c1c1c] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white font-medium flex justify-between items-center">
                 <span>Alice Vance</span>
                 <span className="text-xs text-accent font-mono">alice.onji</span>
               </div>
@@ -58,7 +58,7 @@ export default function PaymentSimulator() {
                 type="text"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full bg-[#1c1c1c] border border-gray-800 focus:border-accent rounded-lg px-4 py-3 text-lg font-mono text-white outline-none transition-colors"
+                className="w-full bg-[#1c1c1c] border border-white/[0.08] focus:border-accent focus:ring-2 focus:ring-accent/20 rounded-lg px-4 py-3 text-lg font-mono text-white outline-none transition-all duration-300"
               />
             </div>
 

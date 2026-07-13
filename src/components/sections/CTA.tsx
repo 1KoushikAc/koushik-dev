@@ -15,7 +15,7 @@ export default function CTA() {
             </span>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="text-5xl sm:text-6xl md:text-8xl font-serif tracking-tight leading-none text-foreground">
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-serif tracking-tight leading-[1.05] text-foreground">
               Let’s build something <span className="italic font-normal">unforgettable.</span>
             </h2>
           </FadeIn>

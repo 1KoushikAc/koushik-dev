@@ -20,12 +20,12 @@ export default function Intro() {
           <div className="lg:col-span-8 flex flex-col gap-8">
             <FadeIn delay={0.1}>
               <h2 className="text-3xl md:text-5xl font-serif leading-snug text-foreground max-w-3xl">
-                I don’t just build websites. I resolve business friction through design, technology, and strategic user experience.
+                I design and engineer web interfaces that remove business friction and establish immediate professional trust.
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl font-light">
-                Many developers code blindly from templates, and many designers create layouts that are pretty but fail to convert. I bridge that gap. By combining high-end typography, visual rhythm, and clean, modular engineering, I build digital assets that establish immediate trust with your prospective clients.
+                A premium digital presence is not decorative; it is an active advocate for your craft. By pairing strict visual restraint, high-end typography scales, and modular frontend code, I build web experiences that command authority and convert interest into conversion.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>

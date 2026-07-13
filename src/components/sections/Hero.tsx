@@ -41,29 +41,29 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xs font-semibold uppercase tracking-widest text-muted mb-6 block"
           >
-            Creative Director & Designer-Engineer
+            Koushik — Designer & Engineer
           </motion.span>
           <motion.h1
             variants={itemVariants}
             className="text-5xl sm:text-6xl md:text-8xl font-serif tracking-tight leading-[1.05] text-foreground mb-8"
           >
-            I craft digital systems that turn <span className="italic font-normal">ambition</span> into authority.
+            Building digital experiences <span className="italic font-normal">that people remember.</span>
           </motion.h1>
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-12 font-light"
           >
-            My name is Koushik. I design and build premium web experiences for startups, founders, and high-growth companies. No templates. Just performance-driven craftsmanship.
+            I partner with founders, brands, and creative leaders to craft premium web platforms. Focused on typographic precision, visual restraint, and modular software engineering.
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6">
-            <Link href="/contact">
-              <MagneticButton>Start a Project</MagneticButton>
+            <Link href="/work">
+              <MagneticButton>View My Work</MagneticButton>
             </Link>
             <Link
-              href="/work"
+              href="/contact"
               className="text-sm font-medium tracking-wide hover:text-accent transition-colors duration-300 flex items-center gap-1 group py-2 cursor-pointer"
             >
-              View Selected Work
+              Let's Talk
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>

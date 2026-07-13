@@ -60,16 +60,16 @@ export default function WorkPage() {
             <div key={project.id} className={`${project.gridClass} group flex flex-col gap-6`}>
               <FadeIn delay={index * 0.15}>
                 <Link href={project.link} className="cursor-pointer block">
-                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-border-custom bg-black/[0.02] shadow-sm transition-shadow duration-500 group-hover:shadow-xl">
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-border-custom bg-black/[0.02] shadow-sm transition-shadow duration-700 group-hover:shadow-lg">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.215,0.61,0.355,1)] group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority={index === 0}
                     />
-                    <div className="absolute inset-0 bg-[#0B0B0B]/0 group-hover:bg-[#0B0B0B]/5 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-[#0B0B0B]/0 group-hover:bg-[#0B0B0B]/5 transition-colors duration-700" />
                   </div>
                 </Link>
               </FadeIn>

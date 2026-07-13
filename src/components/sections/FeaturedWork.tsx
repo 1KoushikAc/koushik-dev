@@ -82,8 +82,11 @@ export default function FeaturedWork() {
               <Link
                 href={project.link}
                 onMouseEnter={() => setActiveProject(project)}
+                onMouseLeave={() => setActiveProject(null)}
+                onFocus={() => setActiveProject(project)}
+                onBlur={() => setActiveProject(null)}
                 data-cursor="view"
-                className="group py-12 md:py-16 border-b border-border-custom flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 cursor-pointer relative z-10"
+                className="group py-12 md:py-16 border-b border-border-custom flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 cursor-pointer relative z-10 focus:outline-none"
               >
                 {/* Number and Title */}
                 <div className="lg:col-span-6 flex items-start gap-6 md:gap-10">

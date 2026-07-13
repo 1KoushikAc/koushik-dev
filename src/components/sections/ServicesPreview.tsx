@@ -56,13 +56,13 @@ export default function ServicesPreview() {
               {services.map((service, index) => (
                 <FadeIn key={service.num} delay={index * 0.1}>
                   <div
-                    className="py-8 border-b border-border-custom grid grid-cols-1 md:grid-cols-12 gap-4 items-start"
+                    className="py-8 border-b border-border-custom grid grid-cols-1 md:grid-cols-12 gap-4 items-start group/row transition-all duration-300 hover:pl-4 hover:border-accent/30"
                   >
-                    <div className="md:col-span-1 text-sm font-mono text-muted">{service.num}</div>
-                    <div className="md:col-span-4 font-serif text-xl md:text-2xl text-foreground font-medium">
+                    <div className="md:col-span-1 text-sm font-mono text-muted group-hover/row:text-accent transition-colors duration-300">{service.num}</div>
+                    <div className="md:col-span-4 font-serif text-xl md:text-2xl text-foreground font-medium group-hover/row:text-accent transition-colors duration-300">
                       {service.title}
                     </div>
-                    <div className="md:col-span-7 text-muted text-sm md:text-base font-light leading-relaxed">
+                    <div className="md:col-span-7 text-muted text-sm md:text-base font-light leading-relaxed group-hover/row:text-foreground transition-colors duration-300">
                       {service.desc}
                     </div>
                   </div>
