@@ -20,12 +20,12 @@ const projects = [
     gridClass: "lg:col-span-8 lg:col-start-1",
   },
   {
-    id: "stone",
-    title: "Stone Engraving Order Platform",
+    id: "revelo",
+    title: "revelo",
     category: "Custom Order Experience",
     year: "2026",
-    link: "/work/stone",
-    image: "/images/stone.png",
+    link: "/work/revelo",
+    image: "/images/revelo.png",
     gridClass: "lg:col-span-6 lg:col-start-7 lg:mt-32",
   },
 ];

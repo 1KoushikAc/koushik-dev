@@ -18,14 +18,14 @@ const projects = [
     image: "/images/onji.png",
   },
   {
-    id: "stone",
-    title: "Stone Engraving Order Platform",
+    id: "revelo",
+    title: "revelo",
     category: "Custom Order Experience",
     year: "2026",
     description:
       "A premium platform that modernizes the process of ordering custom stone engravings. Designed around craftsmanship and simplicity, it enables customers to explore materials, view completed work, and request personalized engravings through an elegant, editorial-inspired experience.",
-    link: "/work/stone",
-    image: "/images/stone.png",
+    link: "/work/revelo",
+    image: "/images/revelo.png",
   },
 ];
 

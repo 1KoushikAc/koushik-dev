@@ -7,11 +7,11 @@ import StoneCustomizer from "@/components/ui/StoneCustomizer";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Stone Engraving Case Study — Koushik",
-  description: "Stone Engraving Order Platform: Modernizing the process of ordering custom stone engravings.",
+  title: "revelo Case Study — Koushik",
+  description: "revelo: Modernizing the process of ordering custom stone engravings.",
 };
 
-export default function StoneCaseStudy() {
+export default function ReveloCaseStudy() {
   return (
     <div className="bg-background text-foreground min-h-screen pt-32 pb-24 selection:bg-accent selection:text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -34,7 +34,7 @@ export default function StoneCaseStudy() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif tracking-tight text-foreground mb-8">
-              Stone Engraving: Modernizing a timeless craft.
+              revelo: Modernizing a timeless craft.
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -60,7 +60,7 @@ export default function StoneCaseStudy() {
           </div>
           <div>
             <span className="text-muted block mb-1">Client</span>
-            <span className="font-medium text-foreground">Timeless Stone Crafts</span>
+            <span className="font-medium text-foreground">revelo Ltd.</span>
           </div>
         </div>
 
@@ -68,8 +68,8 @@ export default function StoneCaseStudy() {
         <FadeIn>
           <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-border-custom bg-black/[0.02] shadow-2xl mb-24">
             <Image
-              src="/images/stone.png"
-              alt="Stone Engraving Mockup"
+              src="/images/revelo.png"
+              alt="revelo Dashboard Mockup"
               fill
               className="object-cover"
               sizes="100vw"
@@ -193,7 +193,7 @@ export default function StoneCaseStudy() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-muted font-light leading-relaxed">
-                The customizer transformed Timeless Stone Crafts' customer pipeline. Online order requests increased by 65% within the first month. In addition, the shop floor reported saving 15 hours per week previously spent on manual design revisions and typographic layout approvals.
+                The customizer transformed revelo's customer pipeline. Online order requests increased by 65% within the first month. In addition, the shop floor reported saving 15 hours per week previously spent on manual design revisions and typographic layout approvals.
               </p>
             </FadeIn>
             
@@ -222,7 +222,7 @@ export default function StoneCaseStudy() {
                 Explore the implementation
               </h3>
               <p className="text-sm text-muted font-light leading-relaxed">
-                Review the design system guidelines or check the live practice stone customizer prototype.
+                Review the design system guidelines or check the live customizer prototype.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
