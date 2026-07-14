@@ -122,6 +122,92 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Capabilities Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 mb-32 border-t border-border-custom pt-16">
+          <div className="lg:col-span-4">
+            <FadeIn>
+              <h2 className="text-2xl font-serif text-foreground font-semibold uppercase tracking-wider mb-4">
+                Capabilities
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <span className="text-xs font-mono text-muted uppercase tracking-widest block mb-6">
+                Core Disciplines
+              </span>
+            </FadeIn>
+            
+            {/* Cultural / Languages */}
+            <div className="mt-8 border-t border-border-custom/50 pt-6 hidden lg:block">
+              <FadeIn delay={0.2}>
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-3">
+                  Languages
+                </span>
+                <p className="text-sm font-light text-muted leading-relaxed">
+                  English, Kannada, Hindi, Tulu, Japanese (Learning)
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FadeIn delay={0.15}>
+                <div className="flex flex-col gap-4">
+                  <h3 className="font-serif text-lg font-medium text-foreground border-b border-border-custom/50 pb-2">
+                    Design & UX
+                  </h3>
+                  <ul className="text-muted text-sm font-light flex flex-col gap-2.5 leading-relaxed">
+                    <li>Interface Systems Design</li>
+                    <li>Interaction & Motion Design</li>
+                    <li>Typography & Layout Easing</li>
+                    <li>Responsive Spacing Systems</li>
+                    <li>Information Architecture</li>
+                  </ul>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div className="flex flex-col gap-4">
+                  <h3 className="font-serif text-lg font-medium text-foreground border-b border-border-custom/50 pb-2">
+                    Engineering
+                  </h3>
+                  <ul className="text-muted text-sm font-light flex flex-col gap-2.5 leading-relaxed">
+                    <li>React & Next.js Architecture</li>
+                    <li>TypeScript Component Design</li>
+                    <li>Kinetic Micro-Interactions (Framer Motion)</li>
+                    <li>Core Web Vitals Optimization</li>
+                    <li>Secure API Integrations</li>
+                  </ul>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.25}>
+                <div className="flex flex-col gap-4">
+                  <h3 className="font-serif text-lg font-medium text-foreground border-b border-border-custom/50 pb-2">
+                    Product Strategy
+                  </h3>
+                  <ul className="text-muted text-sm font-light flex flex-col gap-2.5 leading-relaxed">
+                    <li>Product MVP Prioritization</li>
+                    <li>User Journey Mapping</li>
+                    <li>Data & Conversion Cleaning (SQL)</li>
+                    <li>Requirement Gathering & Docs</li>
+                    <li>CRM & Client Relations</li>
+                  </ul>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Mobile Languages */}
+            <div className="mt-8 border-t border-border-custom/50 pt-6 block lg:hidden">
+              <FadeIn>
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted block mb-2">
+                  Languages
+                </span>
+                <p className="text-sm font-light text-muted">
+                  English, Kannada, Hindi, Tulu, Japanese (Learning)
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+
         {/* Values Grid */}
         <div className="border-t border-border-custom pt-16 mb-32">
           <div className="max-w-2xl mb-16">
